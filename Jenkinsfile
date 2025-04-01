@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Abisheak-create/react-front.git'
+                git branch: 'main', url: 'https://github.com/Abisheak-create/react-front.git'
             }
         }
         stage('Docker Build') {
