@@ -1,0 +1,13 @@
+services:
+  react-app:
+      build: .
+      ports:
+      - 8080:80
+      depends_on:
+        - mysql
+  mysql:
+      image: mysql:8
+      environment:
+        MYSQL_ROOT_PASSWORD: test#3956
+      ports:
+      - 3306:3306
