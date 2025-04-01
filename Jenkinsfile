@@ -20,5 +20,26 @@ pipeline {
                 }
             }
         }
+        stage('Docker Pull') {
+            steps {
+                script {
+                    sh 'docker pull abisheak469/test-guvi:$BUILD_NUMBER'
+                }
+            }
+        }
+        stage('Docker ps') {
+            steps {
+                script {
+                    sh 'docker ps -a'
+                }
+            }
+        }
+        stage('Container run') {
+            steps {
+                script {
+                    sh 'docker run -d -p 8083:80 abisheak469/test-guvi:$BUILD_NUMBER'
+                }
+            }
+        }
     }
 }
